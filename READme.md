@@ -48,3 +48,7 @@ Solicite a equipe de RPA's para que registrem uma conta na sua área, assim voc�
 > Quero utilizar, vou poder utilizar todos os robôs do Jenkins?
 
 - Não! Os robôs são dividos por usuários de acordo com o permissionamento de cada conta. Então você provavelmente não vai conseguir rodar o robô de outro usuário.
+
+# Recomendações aos Admins
+
+- Se atentem com as seguranças de cada job, e ativem o build remoto e dos mesmos, para melhor uso permissionem a segurança dos users via job, assim facilitando seu gerenciamento.
