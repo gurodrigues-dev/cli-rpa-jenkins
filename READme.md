@@ -22,16 +22,18 @@ COMANDO     ACRÔNIMO        AÇÃO
 python3 src/cli.py -r Robô -t Token
 ```
 
-Além na pasta raíz do diretório há um arquivo chamado `.env` nele você deve adicionar suas senhas e dados sensíveis. Tais como: `user_name` e `password`
+Além na pasta raíz do diretório há um arquivo chamado `.env` nele você deve adicionar suas senhas e dados sensíveis. Tais como: `user_name` e `password`, etc.
 
 - Observe o meu arquivo `.env`
 
 ```
 user_name = gustavo
 password = 1234
+jenkins_url = JENKINS_URL/job/
+api_key = API_KEY_USER_ADMIN_JENKINS
 ```
 
-Você deve deixar suas credenciais idênticas a minha, no caso: user_name e password, mas claro, com valores diferentes.
+Você deve deixar suas credenciais idênticas a minha, no caso: user_name, password e o resto, mas claro, com valores diferentes.
 
 # Como receber acesso
 
