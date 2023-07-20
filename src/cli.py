@@ -1,6 +1,8 @@
 import requests
 import argparse
 import variables
+import time
+from requests.auth import HTTPBasicAuth
 
 class JenkinsCLI():
     def __init__(self):
@@ -43,19 +45,34 @@ class JenkinsCLI():
     def get_remote_build_job(self, nome_robot, token, jenkins_url=variables.JENKINSURL):
         url = jenkins_url + nome_robot + "/build?token=" + token
 
-        print("Fazendo a conexão com o Jenkins...")
-
         try:
             ctx = requests.get(url, auth=(variables.USERNAME, variables.PASSWORD))
 
-            print("Conexão feita com sucesso! Rodando o robô. =)")
-
             if ctx.status_code == 201:
 
-                print("Conexão feita com sucesso! Rodando o robô. =)")
+                url_job = variables.JENKINSURL + nome_robot + "/lastBuild/api/json"
+
+                response = requests.get(url_job, auth=HTTPBasicAuth(variables.USERNAME, variables.APIKEY))
+
+                res = response.json()['result']
+
+                print("Robô rodando...")
+
+                time.sleep(1)
+
+                while res == None:
+                    response = requests.get(url_job, auth=HTTPBasicAuth(variables.USERNAME, variables.APIKEY))
+
+                    res = response.json()['result']
+
+                if res == "SUCCESS":
+                    print("O robô rodou com sucesso!")
+
+                else:
+                    print("Robô sofreu erro! ", res)
 
             else:
-                
+
                 print("Conexão incompleta, algo aconteceu. Sinto muito. :/")
 
         except requests.ConnectTimeout:
