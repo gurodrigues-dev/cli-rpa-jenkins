@@ -5,7 +5,7 @@
 # Como utilizar
 
 ### Requisitos
-[ ] Python na máquina
+- [ ] Python na máquina
 
 - Caso você não tenha o Python, o arquivo pode ser executado em um `Google Collab` ou algo parecido. Peça mais informações aos desenvolvedores.
 
